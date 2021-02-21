@@ -57,4 +57,4 @@ if __name__ == "__main__":
     img = b[0].numpy()
     img = np.transpose(img, (1,2,0))
     plt.imshow(img[:,:,[2,1,0]])
-plt.show()
+    plt.show()
