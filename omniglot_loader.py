@@ -39,10 +39,12 @@ class Omniglot(Dataset):
 
         img1 = cv2.imread(path1)
         img1 = cv2.resize(img1, (32,32))
+        img1 = np.transpose(img1, (2,0,1))/255.0
         img2 = cv2.imread(path2)
         img2 = cv2.resize(img2, (32,32))
+        img2 = np.transpose(img2, (2,0,1))/255.0
 
-        return img1, img2, target
+        return np.array(img1, dtype=np.float32), np.array(img2, dtype=np.float32), np.array([target], dtype=np.float32)
 
 if __name__=="main":
     trainset = Data('Latin', True)
